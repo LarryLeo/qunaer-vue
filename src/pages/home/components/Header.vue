@@ -20,6 +20,7 @@ export default {
 <style lang="stylus" scoped>
 // 引入变量
 @import '../../../assets/styles/variables.styl'
+
 .header
   display flex
   background-color $bgColor
