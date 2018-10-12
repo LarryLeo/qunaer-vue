@@ -97,6 +97,9 @@ export default {
 @import '../../../assets/styles/variables.styl'
 @import '../../../assets/styles/mixin.styl'
 
+.icons
+  margin-top 0.2rem
+
 .icons >>> .swiper-container
   width 100%
   height 0
