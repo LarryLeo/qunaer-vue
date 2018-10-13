@@ -22,7 +22,7 @@ export default {
     line-height 0.62rem
     width 100%
     text-align center
-    border-radius .06rem
+    border-radius 0.06rem
     color #666
-    padding 0 .1rem
+    padding 0 0.1rem
 </style>
