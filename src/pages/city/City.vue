@@ -2,8 +2,8 @@
   <div>
     <city-header></city-header>
     <city-search></city-search>
-    <city-list :cities="cities" :hotCities="hotCities"></city-list>
-    <city-alhapbet :cities="cities"></city-alhapbet>
+    <city-list :cities="cities" :hotCities="hotCities" :letter="letter"></city-list>
+    <city-alphabet :cities="cities" v-on:change="handelLetterChange"></city-alphabet>
   </div>
 </template>
 <script>
@@ -19,12 +19,13 @@ export default {
     CityHeader: CityHeader,
     CitySearch: CitySearch,
     CityList: CityList,
-    CityAlhapbet: CityAlphabet
+    CityAlphabet: CityAlphabet
   },
   data () {
     return {
       cities: {},
-      hotCities: []
+      hotCities: [],
+      letter: ''
     }
   },
   methods: {
@@ -39,6 +40,9 @@ export default {
         this.cities = data.cities
         this.hotCities = data.hotCities
       }
+    },
+    handelLetterChange (letter) {
+      this.letter = letter
     }
   },
   mounted () {

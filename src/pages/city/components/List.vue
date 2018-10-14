@@ -17,10 +17,14 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) in cities" :key="key">
+      <div class="area" v-for="(item, key) in cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{key}}</div>
         <div class="item-list">
-          <div class="item border-bottom" v-for="innerItem in item" :key="innerItem.id">{{innerItem.name}}</div>
+          <div
+            class="item border-bottom"
+            v-for="innerItem in item"
+            :key="innerItem.id"
+          >{{innerItem.name}}</div>
         </div>
       </div>
     </div>
@@ -32,10 +36,20 @@ export default {
   name: 'CityList',
   props: {
     cities: Object,
-    hotCities: Array
+    hotCities: Array,
+    letter: String
   },
   mounted () {
     this.scroll = new Bscroll(this.$refs.wrapper)
+  },
+  watch: {
+    letter () {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0]
+        // 这里之所以加下标是因为$refs只能接受DOM节点，而this.letter是一个数组
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
